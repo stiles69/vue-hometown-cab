@@ -42,6 +42,8 @@ Vue.use(Vuetify, {
   },
 })
 
+import './assets/stylus/main.styl'
+
 Vue.config.productionTip = false
 
 new Vue({
