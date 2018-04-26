@@ -1,13 +1,13 @@
 <template>
-  <div id='App'>
+  <div id='app'>
     <v-app>
-      <v-navigation-drawer app temporary v-model='drawer' aria-label='Navigation Menu'>
+      <v-navigation-drawer id='home' app temporary v-model='drawer' aria-label='Navigation Menu'>
         <v-list>        
           <v-list-tile value='true' v-for='(item, i) in items' v-bind:key='i' >
               <v-list-tile-action class='HometownLink'>
-                <v-icon v-html='item.icon' v-on:click='$vuetify.goTo(item.target, item.options)' aria-label='Navigation Button' class='HometownLink'></v-icon>
+                <v-icon v-html='item.icon' v-on:click='navigate()' aria-label='Navigation Button' class='HometownLink'></v-icon>
               </v-list-tile-action>
-            <v-list-tile-title v-text='item.title' v-on:click='$vuetify.goTo(item.target, item.options)' aria-label='Navigation Title' class='HometownLink'></v-list-tile-title>
+            <v-list-tile-title v-text='item.title' v-on:click='navigate()' aria-label='Navigation Title' class='HometownLink'></v-list-tile-title>
           </v-list-tile>
         </v-list>
       </v-navigation-drawer>
@@ -18,35 +18,19 @@
       </v-toolbar>
       <!-- Begin Main Content -->
       <!--Begin Cover Image-->
-    <img src='./assets/img/Cover-1920x950.png' class='HometownImage' aria-label='Cover Image' />    
+    <img src='./assets/img/Cover-1920x950.png' width='100%' class='HometownImage' aria-label='Cover Image' />    
     <!--End Cover Image-->
+    <v-container>
+      <router-view></router-view>
+    </v-container>    
     <!--Begin Heading-->
     <v-layout column align-center>
     <p class='title' aria-label='Company Name'>{{ companyname }}</p>
     <p class='title' aria-label='Company Description'>Newton, Iowa Cab and Taxi Service</p>    
     </v-layout>
     <!--End Heading-->
-    <!-- Begin Contact -->    
-      <v-card id='contact' raised color='white' height='auto'>
-      <v-toolbar dark color='primary'>
-        <v-toolbar-title class='title black--text' aria-label='Toolbar Contact'>
-          Contact
-        </v-toolbar-title>
-      </v-toolbar>
-      <v-card-text>
-        <p class='title'>        
-          <v-icon>phone</v-icon>
-          {{ telnum1 }}<span> </span>
-          <v-icon>content_copy</v-icon>
-        </p>
-        <p class='title'>
-          <v-icon>phone</v-icon>
-          {{ telnum2 }}<span> </span>
-          <v-icon>content_copy</v-icon>
-        </p>
-      </v-card-text>
-      </v-card>    
-    <!-- End Contact -->
+    <!-- Begin Contact -->
+    <router-view></router-view>
     <!-- Begin Hours -->
     <v-card id='hours' raised color='white' height='auto'>
     <v-toolbar dark color='primary' aria-label='Toolbar Hours of Operation'>
@@ -177,6 +161,8 @@
 
 <script>
 import Constants from '@/components/constants.js'
+import Contact from '@/components/Contact'
+import Router from './router'
 
 export default {
   name: 'App',
@@ -186,12 +172,12 @@ export default {
       drawer: false,
       fixed: false,
       items: [
-        { icon: 'home', title: 'Home', target: '#home', options: '[ easing: "easeInOutCubic", duration: 300 ]' },
-        { icon: 'contact_phone', title: 'Contact', target: '#contact', options: '[ easing: "easeInOutCubic", duration: 300 ]' },
-        { icon: 'access_time', title: 'Hours', target: '#hours', options: '[ easing: "easeInOutCubic", duration: 300 ]' },
-        { icon: 'attach_money', title: 'Pricing', target: '#pricing', options: '[ easing: "easeInOutCubic", duration: 300 ]' },
-        { icon: 'money_off', title: 'Specials', target: '#specials', options: '[ easing: "easeInOutCubic", duration: 300 ]' },
-        { icon: 'record_voice_over', title: 'Testimonials', target: '#testimonials', options: '[ easing: "easeInOutCubic", duration: 300 ]' }
+        { icon: 'home', title: 'Home', target: '#home', options: '[ easing: "easeInOutCubic", duration: 600 ]' },
+        { icon: 'contact_phone', title: 'Contact', target: '#contact', options: '[ easing: "easeInOutCubic", duration: 600 ]' },
+        { icon: 'access_time', title: 'Hours', target: '#hours', options: '[ easing: "easeInOutCubic", duration: 600 ]' },
+        { icon: 'attach_money', title: 'Pricing', target: '#pricing', options: '[ easing: "easeInOutCubic", duration: 600 ]' },
+        { icon: 'money_off', title: 'Specials', target: '#specials', options: '[ easing: "easeInOutCubic", duration: 600 ]' },
+        { icon: 'record_voice_over', title: 'Testimonials', target: '#testimonials', options: '[ easing: "easeInOutCubic", duration: 600 ]' }
       ],
       miniVariant: false,
       right: false,
@@ -210,9 +196,15 @@ export default {
       additionalStopPrice: Constants.additionalstopprice,
       Version: Constants.version,
       Easing: 'easeInOutCubic',
-      Duration: 300
+      Duration: 600
     }
-  } 
+  },
+  methods: {
+    navigate() {
+      router.push('Contact')
+    }
+  },
+  components: Router, Contact, App
 }
 </script>
 
