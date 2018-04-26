@@ -14,8 +14,7 @@
       <v-toolbar app color='primary' class='white--text'>
         <v-toolbar-side-icon @click.stop='drawer = !drawer' aria-label='Navigation Button'></v-toolbar-side-icon>
         <v-toolbar-title v-text='title' class='black--text HometownToolbar'></v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-toolbar-items><a href='#contact' v-focus class='HometownLink'>Click to Go To Main Content</a></v-toolbar-items>
+        <v-spacer></v-spacer>        
       </v-toolbar>
       <!-- Begin Main Content -->
       <!--Begin Cover Image-->
@@ -23,24 +22,24 @@
     <!--End Cover Image-->
     <!--Begin Heading-->
     <v-layout column align-center>
-    <p class='headline' aria-label='Company Name'>{{ companyname }}</p>
+    <p class='title' aria-label='Company Name'>{{ companyname }}</p>
     <p class='title' aria-label='Company Description'>Newton, Iowa Cab and Taxi Service</p>    
     </v-layout>
     <!--End Heading-->
     <!-- Begin Contact -->    
       <v-card id='contact' raised color='white' height='auto'>
       <v-toolbar dark color='primary'>
-        <v-toolbar-title class='headline black--text' aria-label='Toolbar Contact'>
+        <v-toolbar-title class='title black--text' aria-label='Toolbar Contact'>
           Contact
         </v-toolbar-title>
       </v-toolbar>
       <v-card-text>
-        <p class='headline'>        
+        <p class='title'>        
           <v-icon>phone</v-icon>
           {{ telnum1 }}<span> </span>
           <v-icon>content_copy</v-icon>
         </p>
-        <p class='headline'>
+        <p class='title'>
           <v-icon>phone</v-icon>
           {{ telnum2 }}<span> </span>
           <v-icon>content_copy</v-icon>
@@ -51,7 +50,7 @@
     <!-- Begin Hours -->
     <v-card id='hours' raised color='white' height='auto'>
     <v-toolbar dark color='primary' aria-label='Toolbar Hours of Operation'>
-      <v-toolbar-title class='headline black--text'>
+      <v-toolbar-title class='title black--text'>
         Hours of Operation
       </v-toolbar-title>
     </v-toolbar>
@@ -81,7 +80,7 @@
     <!-- Begin Pricing -->
     <v-card id='pricing' raised color='white' height='auto'>
     <v-toolbar dark color='primary'>
-      <v-toolbar-title class='headline black--text' aria-label='Toolbar Pricing'>
+      <v-toolbar-title class='title black--text' aria-label='Toolbar Pricing'>
         Pricing
       </v-toolbar-title>
     </v-toolbar>
@@ -113,7 +112,7 @@
     <!-- Begin Specials -->
     <v-card id='specials' raised color='white' height='auto'>
     <v-toolbar dark color='primary' aria-label='Toolbar Specials'>
-      <v-toolbar-title class='headline black--text'>
+      <v-toolbar-title class='title black--text'>
         Specials
       </v-toolbar-title>
     </v-toolbar>
@@ -130,7 +129,7 @@
     <!-- Begin Testimonials -->
     <v-card id='testimonials' raised color='white' class='HometownTestimonials'>
     <v-toolbar dark color='primary' aria-label='Toolbar Testimonials'>
-      <v-toolbar-title class='headline black--text'>
+      <v-toolbar-title class='title black--text'>
         Testimonials
       </v-toolbar-title>
     </v-toolbar>
